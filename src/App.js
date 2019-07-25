@@ -10,15 +10,12 @@ function App() {
   return (
     <Provider store={store}>
       <Router history={history}>
-        <Switch>
-          <div className="App">
-            <header className="App-header">
-              <h1>Task</h1>
-            </header>
+        <div className="App">
+          <Switch>
             <Route path="/" exact component={Inbox} />
             <Route path="/about" component={About} />
-          </div>
-        </Switch>
+          </Switch>
+        </div>
       </Router>
     </Provider>
   );

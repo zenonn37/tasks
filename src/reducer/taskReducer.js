@@ -4,7 +4,6 @@ import {
   DELETE_TASK,
   UPDATE_TASK
 } from "../types/taskTypes";
-import { isInterfaceDeclaration } from "@babel/types";
 
 const init = {
   tasks: [],
