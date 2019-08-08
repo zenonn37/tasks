@@ -4,7 +4,8 @@ import {
     NEW_TASK,
     DELETE_TASK,
     UPDATE_TASK,
-    ERRORS
+    ERRORS,
+    GET_PROJECTS
 
 } from '../types/taskTypes'
 import { loadingAction } from '../actions/base_Action'
@@ -34,6 +35,27 @@ export const newTask = (task) => {
             })
             console.log('success');
             //loadingAction();
+
+
+
+
+            try {
+                const res = await tasks.get('/projects')
+                dispatch({
+                    type: GET_PROJECTS,
+                    payload: res.data.data
+                })
+                // dispatch({
+                //     type: LOADING,
+                //     payload: false
+                // })
+
+            } catch (error) {
+                dispatch({
+                    type: ERRORS,
+                    payload: error.message
+                })
+            }
 
             dispatch({
                 type: LOADING,

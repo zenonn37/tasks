@@ -7,7 +7,7 @@ import {
 
 const init = {
   projects: [],
-  current: null
+  current: {}
 };
 
 export const projectReducer = (state = init, action) => {
@@ -15,22 +15,22 @@ export const projectReducer = (state = init, action) => {
     case GET_PROJECTS:
       return {
         ...state,
-        tasks: action.payload
+        current: action.payload
       };
     case NEW_PROJECTS:
       return {
         ...state,
-        tasks: [...state.tasks, action.payload]
+        projects: [...state.projects, action.payload]
       };
     case UPDATE_PROJECTS:
       return {
         ...state,
-        tasks: action.payload
+        projects: action.payload
       };
     case DELETE_PROJECTS:
       return {
         ...state,
-        tasks: state.tasks.filter(task => task.id !== action.payload)
+        projects: state.projects.filter(project => project.id !== action.payload)
       };
 
     default:

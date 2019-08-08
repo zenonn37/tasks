@@ -28,7 +28,7 @@ const InputComponent = (props) => {
             priority: priority,
             due_date: schedule,
             ui_date: Date.now(),
-            project_id: 1
+            project_id: 2
 
         }
 
@@ -99,7 +99,7 @@ const InputComponent = (props) => {
                 <button className="btn waves-effect waves-light" type="submit" name="action">
                     Add Task
                 </button>
-                <button className="btn waves-effect waves-light" name="cancel">
+                <button className="btn waves-effect waves-light" type="button" onClick={() => props.onSubmit()} name="cancel">
                     Cancel
                 </button>
 
