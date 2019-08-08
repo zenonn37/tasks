@@ -1,7 +1,7 @@
 import { REGISTER, LOGIN, LOGOUT } from "../types/authTypes";
 
 const init = {
-  token: null,
+  token: localStorage.getItem("access_token") || null,
   user: null
 };
 
