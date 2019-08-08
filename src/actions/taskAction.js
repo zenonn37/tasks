@@ -7,7 +7,9 @@ import {
     ERRORS
 
 } from '../types/taskTypes'
+import { loadingAction } from '../actions/base_Action'
 import tasks from "../api/tasks";
+import { LOADING } from '../types/baseTypes';
 
 
 
@@ -19,6 +21,10 @@ export const newTask = (task) => {
     console.log(task);
 
     return async dispatch => {
+        dispatch({
+            type: LOADING,
+            payload: true
+        })
 
         try {
             const res = await tasks.post('/tasks', task);
@@ -27,6 +33,12 @@ export const newTask = (task) => {
                 payload: res.data.data
             })
             console.log('success');
+            //loadingAction();
+
+            dispatch({
+                type: LOADING,
+                payload: false
+            })
 
 
 

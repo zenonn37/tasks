@@ -5,6 +5,11 @@
   padding: 0;
 }
 
+.input-task {
+  -webkit-transition: all 0.8s ease 0s;
+  transition: all 0.8s ease 0s;
+}
+
 .line_spacer {
   margin-top: 30px;
 }
@@ -13,7 +18,9 @@
   margin-top: 60px;
 }
 
-li, a, button {
+li,
+a,
+button {
   font-weight: 500;
   font-size: 16px;
   color: #edf0f1;
@@ -40,8 +47,8 @@ header button {
   border: none;
   border-radius: 50px;
   cursor: pointer;
-  -webkit-transition: all 1.0s ease 0s;
-  transition: all 1.0s ease 0s;
+  -webkit-transition: all 0.9s ease 0s;
+  transition: all 0.9s ease 0s;
 }
 
 header button:hover {

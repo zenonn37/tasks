@@ -7,7 +7,7 @@ import moment from 'moment'
 
 
 
-const InputComponent = () => {
+const InputComponent = (props) => {
 
     const dispatch = useDispatch();
     //task data
@@ -32,7 +32,14 @@ const InputComponent = () => {
 
         }
 
-        dispatch(newTask(data));
+        dispatch(newTask(data)).then(() => {
+            console.log('complete');
+            const { onSubmit } = props
+
+            onSubmit();
+
+
+        });
 
         console.log(data);
 

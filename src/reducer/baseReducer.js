@@ -1,9 +1,10 @@
-import { ERRORS, LOADING } from "../types/baseTypes";
+import { ERRORS, LOADING, COMPLETE } from "../types/baseTypes";
 
 const init = {
   errors: [],
   loading: false,
-  clear: false
+  clear: false,
+  complete: true,
 };
 
 export const baseReducer = (state = init, action) => {
@@ -18,6 +19,11 @@ export const baseReducer = (state = init, action) => {
         ...state,
         loading: action.payload
       };
+    case COMPLETE:
+      return {
+        ...state,
+        complete: action.payload
+      }
 
     default:
       return state;
