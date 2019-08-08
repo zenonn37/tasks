@@ -1,4 +1,4 @@
-import { REGISTER, LOGIN, LOGOUT } from "../types/authTypes";
+import { REGISTER, LOGIN, LOGOUT, AUTH } from "../types/authTypes";
 
 const init = {
   token: localStorage.getItem("access_token") || null,
@@ -23,6 +23,11 @@ export const authReducer = (state = init, action) => {
         user: null,
         token: null
       };
+    case AUTH:
+      return {
+        ...state,
+        user: action.payload
+      }
 
     default:
       return state;

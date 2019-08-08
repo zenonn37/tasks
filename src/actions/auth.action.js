@@ -4,7 +4,7 @@ import { REGISTER, LOGIN, AUTH, LOGOUT, CLEAR_PROGRAMS } from "../types";
 import history from "../history";
 
 export const registerAction = register => {
-  return async (dispatch, getData) => {
+  return async dispatch => {
     try {
       const res = await tasks.post("/register", register);
       const result = res.data.data;
@@ -13,16 +13,38 @@ export const registerAction = register => {
           username: result.email,
           password: register.password
         };
+        //loginAction(data);
         try {
           const res = await tasks.post("/login", data);
           const result = res.data.access_token;
           console.log(result);
 
           localStorage.setItem("access_token", result);
+          const AUTH_TOKEN = result;
+          tasks.defaults.headers.common["Authorization"] = "Bearer " + AUTH_TOKEN
           dispatch({
             type: LOGIN,
             payload: result
           });
+          if (result) {
+
+
+            try {
+
+              const res = await tasks.get("/user");
+              const result = res.data.data;
+
+              console.log(result);
+
+              dispatch({
+                type: AUTH,
+                payload: result
+              });
+            } catch (error) {
+              console.log(error);
+            }
+          }
+
           history.push("/");
         } catch (error) {
           console.log(error);
@@ -41,6 +63,8 @@ export const registerAction = register => {
   };
 };
 export const loginAction = login => {
+  console.log(login);
+
   return async dispatch => {
     try {
       const res = await tasks.post("/login", login);
@@ -56,7 +80,7 @@ export const loginAction = login => {
         const AUTH_TOKEN = localStorage.getItem("access_token");
         tasks.defaults.headers.common["Authorization"] = "Bearer " + AUTH_TOKEN
         const res = await tasks.get("/user");
-        const result = res.data;
+        const result = res.data.data;
 
         console.log(result);
 
@@ -95,7 +119,7 @@ export const userAction = () => {
   };
 };
 export const logOut = () => {
-  return async (dispatch, getData) => {
+  return async dispatch => {
     try {
       const AUTH_TOKEN = localStorage.getItem("access_token");
       tasks.defaults.headers.common["Authorization"] = "Bearer " + AUTH_TOKEN
@@ -108,7 +132,7 @@ export const logOut = () => {
         type: CLEAR_PROGRAMS
       });
       localStorage.removeItem("access_token");
-      history.push("/login");
+      history.push("/auth");
     } catch (error) {
       console.log(error);
     }

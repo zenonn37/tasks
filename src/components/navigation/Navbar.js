@@ -1,7 +1,10 @@
-import React from 'react'
+import React from 'react';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../actions/auth.action';
 
 
-function Navbar(props) {
+function Navbar() {
+    const dispatch = useDispatch();
     return (
         <header>
             <img className="logo" src="images/tasko.svg" alt="logo" />
@@ -16,7 +19,10 @@ function Navbar(props) {
                         <a href="#">Projects</a>
                     </li>
                     <li>
-                        <a href="#">About</a>
+                        <i className="small material-icons point" onClick={() => dispatch(logOut())}>
+
+                            exit_to_app
+                      </i>
                     </li>
 
                 </ul>

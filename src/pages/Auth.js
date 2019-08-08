@@ -1,54 +1,40 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { registerAction, loginAction } from '../actions/auth.action';
+import Login from '../components/auth/Login'
+import Register from '../components/auth/Register'
 
 
 
 
 const Auth = () => {
 
+    const [auth, setAuth] = useState(false);
 
-    const dispatch = useDispatch();
-    const [name, setName] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-
-    const onSubmit = e => {
-        e.preventDefault();
-        const data = {
-
-
-            username: email,
-            password: password
-        }
-        console.log(data);
-
-        dispatch(loginAction(data))
-
+    const handleAuth = e => {
+        setAuth(!auth);
     }
 
 
+
+
     return (
-        <div>
+        <div className="auth-system">
 
-            <form onSubmit={onSubmit}>
+            {
+                auth ? <Register /> : <Login />
+            }
 
-                <div className="fields">
-                    <input type="text" name="username" onChange={e => setEmail(e.target.value)} placeholder="Username" />
-                </div>
-                <div className="fields">
-                    <input type="text" name="password" onChange={e => setPassword(e.target.value)} placeholder="Password" />
-                </div>
-                <div className="fields">
-                    <input type="submit" name="Submit" />
-                </div>
+            {
+                auth ? (<button onClick={handleAuth}>Login</button>) : (<button onClick={handleAuth}>Register</button>)
+            }
+            <div>
 
-            </form>
-
-
-
+            </div>
         </div>
     )
+
+
+
+
 }
 
 export default Auth;
