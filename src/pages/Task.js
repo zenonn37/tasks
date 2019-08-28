@@ -62,7 +62,7 @@ function Task() {
 
 
                 </div>
-              ) : <InputComponent onSubmit={onTest} />
+              ) : <InputComponent id={current.id} onSubmit={onTest} />
             }
 
 

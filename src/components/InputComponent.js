@@ -18,9 +18,11 @@ const InputComponent = (props) => {
     const [hide, setHide] = useState(false);
     //note visiabilty
 
-
+    const { id } = props;
     const onSubmit = (e) => {
         e.preventDefault();
+
+        console.log(id);
 
         const data = {
             title: task,
@@ -28,7 +30,7 @@ const InputComponent = (props) => {
             priority: priority,
             due_date: schedule,
             ui_date: Date.now(),
-            project_id: 2
+            project_id: id
 
         }
 

@@ -23,6 +23,7 @@ function App() {
       <Router history={history}>
         <Navbar />
         <div className="container">
+          <aside>test</aside>
           <Switch>
             <Route path="/" exact component={Task} />
             <Route path="/auth" component={Auth} />
