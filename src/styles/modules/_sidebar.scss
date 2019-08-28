@@ -1,0 +1,47 @@
+//sidebar
+
+.sidebar{
+    flex:0 0 15em;
+    background-color: darkslategrey;
+    padding: 1rem 2rem 0 2rem;
+    transition: margin-left .3s ease-out;
+    h6{
+      text-align: center;
+    }
+    .user{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        .avatar{
+            display: flex;
+            justify-content: center;
+            img{
+                max-width: 30%;
+                display: flex;
+                
+             
+            }
+        }
+        .persona{
+            margin-top: 1rem;
+          h1{
+              font-size: 1.2em;
+          }
+        }
+        
+    }
+    .menu{
+        li{
+            padding: 0.5rem;
+        }
+        a{
+            padding: 0.5rem;
+            transition: padding-left .3s ease, background-color;
+            &:hover{
+                padding-left: 1.5em;
+                // background-color: azure;
+            }
+        }
+
+    }
+}
