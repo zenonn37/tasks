@@ -1,5 +1,9 @@
-@import './modules/sidebar';
+@import './variables';
 @import './mixins/mixins';
+
+@import './modules/sidebar';
+
+@import './modules/header';
 
 *,
 *:after,
@@ -13,7 +17,7 @@ html{
 }
 
 
-.body{
+body{
     height: 100vh;
    
 }
@@ -76,41 +80,7 @@ button {
     text-decoration: none;
 }
 
-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 30px 10%;
-    background-color: #0c2b33;
 
-    button {
-        padding: 9px 25px;
-        background-color: rgba(0, 136, 169, 1);
-        border: none;
-        border-radius: 50px;
-        cursor: pointer;
-        transition: all 0.9s ease 0s;
-
-        &:hover {
-            background-color: rgba(0, 136, 169, 0.8);
-        }
-
-    }
-}
-
-.nav__links li {
-    display: inline-block;
-    padding: 0px 20px;
-
-    a {
-        transition: all 0.8s ease 0s;
-
-        &:hover {
-            color: #0088a9;
-        }
-    }
-
-}
 
 
 
