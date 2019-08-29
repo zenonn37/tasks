@@ -2,10 +2,16 @@
   -webkit-box-flex: 0;
       -ms-flex: 0 0 15em;
           flex: 0 0 15em;
-  background-color: darkslategrey;
+  background-color: #C5CAE9;
   padding: 1rem 2rem 0 2rem;
-  -webkit-transition: margin-left .3s ease-out;
-  transition: margin-left .3s ease-out;
+  -webkit-transition: all 0.4s ease-out;
+  transition: all 0.4s ease-out;
+}
+
+.sidebar:hover {
+  -webkit-box-flex: 0;
+      -ms-flex: 0 0 14.5rem;
+          flex: 0 0 14.5rem;
 }
 
 .sidebar h6 {
@@ -55,12 +61,12 @@
 
 .sidebar .menu a {
   padding: 0.5rem;
-  -webkit-transition: padding-left .3s ease, background-color;
-  transition: padding-left .3s ease, background-color;
+  -webkit-transition: all 0.3s ease-out;
+  transition: all 0.3s ease-out;
 }
 
 .sidebar .menu a:hover {
-  padding-left: 1.5em;
+  padding-left: .9em;
 }
 
 header {
@@ -110,6 +116,7 @@ body {
 
 h1, h2, h3, h4, h5, h6 {
   margin: 0;
+  color: #212121;
 }
 
 i {

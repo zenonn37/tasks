@@ -11,6 +11,7 @@ import { Router, Route, Switch } from "react-router-dom";
 import { Provider } from "react-redux";
 import history from "./history";
 import store from "./store";
+import ProjectModal from './components/ProjectModal';
 
 function App() {
 
@@ -27,6 +28,7 @@ function App() {
           <Navbar />
           <main className="main-content">
             <SideBar />
+            <ProjectModal />
             <div className="content">
               <div className="container">
                 <Switch>

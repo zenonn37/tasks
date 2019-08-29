@@ -30,6 +30,8 @@ function SideBar() {
 
 
             <h6>Projects</h6>
+            <a href="#add-project-modal" className="btn-floating btn-small blue darken-1 modal-trigger">
+            </a>
 
             <div className="menu">
 
